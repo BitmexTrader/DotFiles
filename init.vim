@@ -293,25 +293,7 @@ endfunction
 nnoremap <leader>u1 :call UnderlineHeading(1);<cr>
 nnoremap <leader>u2 :call UnderlineHeading(2);<cr>
 nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
-"MAPPINGS FOR INSERT MODE
-function! ToggleCase(between)
-	if a:between == 1
-	  insert! <esc>0v$Ui
-	elseif a:between == 2
-	  insert! <esc>0v$ui
-	endif
-endfunction
 
-inoremap <c-y> :call ToggleCase(1);<cr>
-inoremap <c-u> :call ToggleCase(2);<cr>
-
-" }}}
-"-- vim script file settings ---------------------- {{{}
-augroup filetype_vim
-	autocmd!
-	autocmd FileType vim setlocal foldmethod=marker
-	augroup END
-" }}}
 "-- NETRW SETTINGS ---------------------- {{{}
 let g:netrw_liststyle = 1
 let g:netrw_preview = 1
