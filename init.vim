@@ -294,6 +294,7 @@ nnoremap <leader>u1 :call UnderlineHeading(1);<cr>
 nnoremap <leader>u2 :call UnderlineHeading(2);<cr>
 nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
 
+" }}}
 "-- NETRW SETTINGS ---------------------- {{{}
 let g:netrw_liststyle = 1
 let g:netrw_preview = 1
