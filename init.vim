@@ -1,8 +1,6 @@
-
-
 "Leader is <Space>
 let mapleader =" "
-"USE WITH FILE TYPES (EX PYTHON, HTML)
+" Local Leader is <Space>,
 let maplocalleader =" ,"
 "===== PLUGIN MANGER IS VIM-PLUG ==============="
 filetype off
@@ -10,15 +8,17 @@ call plug#begin('~/.local/share/nvim/plugged')
 "Better Directory Navigation"
 Plug 'tpope/vim-vinegar'
 Plug 'vim-scripts/netrw.vim'
-"Testing
-Plug 'mhinz/vim-startify'
+Plug 'francoiscabrol/ranger.vim'
 
+Plug 'mhinz/vim-startify'
+Plug 'kassio/neoterm'
 Plug 'farfanoide/vim-kivy'
 Plug 'chrisbra/csv.vim'
 Plug 'flrnd/plastic.vim'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'junegunn/tmux-complete.vim'
+
 "NODE STUFF
 Plug 'peecky/vim-node-syntax'
 Plug 'myhere/vim-nodejs-complete'
@@ -77,6 +77,7 @@ Plug 'ncm2/nvim-typescript'
 Plug 'ncm2/ncm2-vim'
 Plug 'Shougo/neco-vim'
 Plug 'Chiel92/vim-autoformat'
+"Testing
 call plug#end()
 set number
 set path+=**
@@ -121,13 +122,12 @@ syntax on
 "============== AIRLINE_THEMES =========================="
 let g:airline_powerline_fonts=1
 let g:airline_theme ='angr'
+set guifont=hackbold\ Nerd\ Font\ 15
 "LIST OF GOOD THEMES FOR AIR LINE THEMES"
 "'aye_mirage'
 "'angr'
 "'ayu_mirage'
 "'onedark'
-"========== FAST FILE OPENING LEADERS===================="
-inoremap jk <esc>
 
 "My To Do's List
 nnoremap <leader>td :e ~/Desktop/TODOS/ToDayToDo.txt<cr>
@@ -156,7 +156,12 @@ nmap <leader>fz :Maps<CR>
 nmap <leader>s :setlocal spell!<CR>
 " My Plugin leader Mapping
 nnoremap <leader>jj :call Uppercase#test()<cr>
+"test
+nnoremap <silent> <localleader><space> :vertical botright Ttoggle<cr><c-w>l
 
+
+"Terminal Mapping
+tnoremap <leader><esc> <c-\><c-n><esc><cr>
 
 " PYTHON SETUP
 " FZF Settings
@@ -179,6 +184,7 @@ set wildmenu
 "StripWhiteSpace"
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
+" }}}
 
 " Split Window Navigation "
 nnoremap <C-Right> <C-w>l
@@ -269,32 +275,42 @@ let g:pymode_syntax_builtin_types=g:pymode_syntax_all
 let g:pymode_syntax_highlight_exceptions=g:pymode_syntax_all
 let g:pymode_syntax_docstrings=g:pymode_syntax_all
 " }}}
-" My Test Functions ---------------------- {{{}
+"  Functions ---------------------- {{{}
 function! FixLastSpellingError()
   normal! mm[s1z='m
 endfunction
 nnoremap <leader>sa :call FixLastSpellingError()<cr>
 
+"Reload's File that you are in.
 function! SourceCurrentFile()
 	normal!
 endfunction
 nnoremap <leader>sop :source %<cr>
-"Make into a plugin for markdown
-function! UnderlineHeading(level)
-	if a:level == 1
-	  normal! yypVr=
-	elseif a:level == 2
-	  normal! yypVr-
-        else
-          normal! I###
+
+" My MarkdownPlugin Functions
+function! MarkdownHeading(head)
+	if a:head == 1
+	   normal! I# 
+	elseif a:head == 2
+	   normal! I## 
+	else
+	   normal! I### 
         endif
 endfunction
+"Commands
 
-nnoremap <leader>u1 :call UnderlineHeading(1);<cr>
-nnoremap <leader>u2 :call UnderlineHeading(2);<cr>
-nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
+nnoremap <leader>u1 :call MarkdownHeading(1);<cr>
+nnoremap <leader>u2 :call MarkdownHeading(2);<cr>
+nnoremap <leader>u3 :call MarkdownHeading(3);<cr>
 
-" }}}
+
+
+
+
+
+
+
+
 "-- NETRW SETTINGS ---------------------- {{{}
 let g:netrw_liststyle = 1
 let g:netrw_preview = 1
@@ -305,5 +321,6 @@ set runtimepath+=~/commands-vim
 set runtimepath+=~/undermarkdown-vim
 set runtimepath+=~/Desktop/CookBooks/Vim_Cook_Book/PluginFiles/MarkdownPlugin
 set runtimepath+=~/uppercase-vim
-"set runtimepath+=~/vim-amake
+set runtimepath+=~/vim-amake
 " }}}
+set runtimepath+=~/Easymarkdown-vim
