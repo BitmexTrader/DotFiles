@@ -1,4 +1,8 @@
 MyDotFiles
 ==========
 
-This my workflow for my setup with NeoVim,Tmux and ZSH.
+This my workflow setup.
+
+> Tmux
+> NeoVim
+> zsh
