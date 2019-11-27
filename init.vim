@@ -1,3 +1,4 @@
+
 "Leader is <Space>"
 let mapleader =" "
 "Local Leader is <Space>,"
@@ -28,7 +29,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tstelzer/welpe.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Tux Status line and Completion"
+Plug 'ryanoasis/vim-devicons'
+"Tumx Status line and Completion"
 Plug 'edkolev/tmuxline.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -46,7 +48,7 @@ Plug 'Shougo/neosnippet-snippets'
 "MarkdownPreview
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
+Plug 'kassio/neoterm'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
