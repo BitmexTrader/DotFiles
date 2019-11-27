@@ -3,11 +3,41 @@
 
 This is the setup that I have been working on, I started using NeoVim and Vim at the start of 2019, and can not stop trying make the best Config/ workflow I have a problem, here is what I have so far.
 
+#### **The Configuration Layout**
+- ![Neovim](https://neovim.io/) a text editor, Neovim seems to come with a bit more common sense defaults and is pretty easy to install plugins.<br>
+
+
 - ![tmux](https://github.com/tmux/tmux/wiki)(a terminal multiplexer.)<br>
 - ![zsh](https://gist.github.com/derhuerst/12a1558a4b408b3b2b7e) (a better shell, command line IMO) <br>
 - ![oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) it's kind of a plugin manger, but more.<br>  
-- ![Neovim](https://neovim.io/) a text editor, Neovim seems to come with a bit more common sense defaults and is pretty easy to install plugins.
-### **The Plugin Manger**
+
+### *Neovim Setup*
+This is a pretty new init.vim file, tried to keep it as easy to understand as possible.
+
+
+
+### *My tmux setup*
+
+It's pretty small just a few key mappings and settings for opening splits in the directory you are in.
+
+* Instead of CTRL-b for the prefix, witch is madness
+```conf
+# Rebind Tmux prefix to CTRL-a                                                                               
+set-option -g prefix C-a                                                                                     
+unbind-key C-a                                                                                               
+bind-key C-a send-prefix
+```
+
+### *zsh*
+### *oh-my-zsh*
+### *ranger*
+
+
+
+
+
+
+#### **The Plugin Manger**
 ![Vim-plug](https://github.com/junegunn/vim-plug)
 
 
