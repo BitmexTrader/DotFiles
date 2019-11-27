@@ -9,11 +9,7 @@ This is the setup that I have been working on, I started using NeoVim and Vim at
 - ![Neovim](https://neovim.io/) a text editor, Neovim seems to come with a bit more common sense defaults and is pretty easy to install plugins.
 ### **The Plugin Manger**
 ![Vim-plug](https://github.com/junegunn/vim-plug)
-![Vim-plug](img/vimpug.png)
 
 
-## **MyDotFiles**
-**Python syntax plugin Semshi**<br> **__(Top before /Bottom after)__** <br>
-![My color scheme is welpe](SH.png)
 
 
