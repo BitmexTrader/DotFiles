@@ -28,7 +28,14 @@ It's pretty small just a few key mappings and settings for opening splits in the
 ![tmux](img/tmuxprefix.png)
 
 ### *zsh*
+#### Aliases For opening files from the command line 
+![command](img/comm.png)
+![zshconfig](img/zshcon.png)
+
 ### *oh-my-zsh*
+
+
+
 ### *ranger*
 
 #### **The Plugin Manger**
