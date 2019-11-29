@@ -1,4 +1,3 @@
-
 "Leader is <Space>"
 let mapleader =" "
 "Local Leader is <Space>,"
@@ -9,16 +8,20 @@ let maplocalleader =" ,"
 call plug#begin()
 
 "DARK-VIM MASTER SHOUGO PLUGINS
+"I just started using unite but it seem like a banger of a plugin
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimshell.vim'
 
-"THE MAN TPOPES PLUHGINS "
+"THE MAN TPOPES PLUGINS "
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 "Directory Manger
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
+"This works with NETRW (vim file manger) to give to NERDTREE like functions.
 "Plug 'pablopunk/native-sidebar.vim'
 "COLOUR SCHEMES FOR MAIN BACKGROUND AND AIRLINE"
 "Python Syntax Highlighter
@@ -29,27 +32,29 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tstelzer/welpe.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'kyuhi/vim-emoji-complete'
 Plug 'ryanoasis/vim-devicons'
-"Tumx Status line and Completion"
+"TUMX STATUS LINE AND COMPLETION"
 Plug 'edkolev/tmuxline.vim'
 Plug 'prabirshrestha/async.vim'
+"these two give completion over tmux panes, they are great together
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'wellle/tmux-complete.vim'
-"Auto completion"
+"AUTO COMPLETION"
 Plug 'roxma/nvim-completion-manager'
-"Snippet-Plugins
+"SNIPPET-PLUGINS
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
-"Test
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+"Plugin For NeoVim Terminal
+Plug 'kassio/neoterm'
 
-"Other"
+"OTHER"
+Plug 'jiangmiao/auto-pairs'
 "MarkdownPreview
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'kassio/neoterm'
-Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "BASIC CONFIGS"
@@ -80,19 +85,25 @@ nnoremap <leader>cm :vsplit ~/Desktop/Commands/NNN.md<cr>
 
 "fast Quit and save (write) Shortcuts"
 nnoremap <leader>w :write<cr>
-noremap <leader>q :quit<cr>
-"Unite Mapping " {{{----------------------------------------------
-nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
-nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
-
+nnoremap <leader>q :quit<cr>
 "Turns off Highlighting after searching"
 nnoremap <leader>h :nohlsearch<cr>
-"Toggles Spell checking tests spelling'
+"Toggles Spell checking'
 nnoremap <leader>s :setlocal spell! spelllang=en_us<cr> 
 "Fast Spelling corrections 
 nnoremap <leader>sa ]s1z=
+"UPPERCASE SHORTCUT
 nnoremap <leader>u 0v$U 
-"}}}
+
+"Plugin Mappings 
+"Will fire your default browser to view MD files
+nnoremap <leader>md :MarkdownPreview<cr>
+"This
+"Unite Mapping " {{{----------------------------------------------
+nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
+nnoremap <leader>r :<C-u>Unite -start-insert file_rec<cr>
+nnoremap <leader>d :NERDTreeToggle<CR>
+
 "Navigation Vim Windows
 nnoremap <C-Right> <C-w>l
 nnoremap <C-Left> <C-w>h
@@ -156,4 +167,52 @@ endfunction
 nnoremap <leader>u1 :call UnderlineHeading(1);<cr>
 nnoremap <leader>u2 :call UnderlineHeading(2);<cr>
 nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
+"
 " }}}
+
+let g:NERDTreeDisableFileExtensionHighlight = 1
+let g:NERDTreeDisableExactMatchHighlight = 1
+let g:NERDTreeDisablePatternMatchHighlight = 1
+
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+
+
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 
+
+
+
+
+
+" you can add these colors to your .vimrc to help customizing
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
+
+let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
+
+let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+
