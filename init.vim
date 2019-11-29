@@ -8,7 +8,22 @@ let maplocalleader =" ,"
 call plug#begin()
 
 "DARK-VIM MASTER SHOUGO PLUGINS
-"I just started using unite but it seem like a banger of a plugin
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'Shougo/deol.nvim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimshell.vim'
@@ -64,7 +79,7 @@ set path=**
 set number 
 set noswapfile
 colorscheme welpe
-"Set after color scheme"
+"Set termguicolors after color scheme"
 set termguicolors
 setlocal spell
 set splitbelow splitright
@@ -103,16 +118,33 @@ nnoremap <leader>md :MarkdownPreview<cr>
 nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec<cr>
 nnoremap <leader>d :NERDTreeToggle<CR>
+"CAN NAVIGATION ALL MODE WITH CTRL- ARROW KEYS
+" Navigation for terminal mode
+tnoremap <C-Left> <C-\><C-N><C-w>h
+tnoremap <C-Down> <C-\><C-N><C-w>j
+tnoremap <C-Up> <C-\><C-N><C-w>k
+tnoremap <C-Right> <C-\><C-N><C-w>l
+" Navigation for insert mode
+inoremap <C-Left> <C-\><C-N><C-w>h
+inoremap <C-Down> <C-\><C-N><C-w>j
+inoremap <C-Up> <C-\><C-N><C-w>k
+inoremap <C-Right> <C-\><C-N><C-w>l
 
-"Navigation Vim Windows
+"Navigation for Normal mode
 nnoremap <C-Right> <C-w>l
 nnoremap <C-Left> <C-w>h
 nnoremap <C-Up> <C-w>k
 nnoremap <C-Down> <C-w>j
+
 "Shortcut for Splitting Windows"
 nnoremap sp :split<cr>
 nnoremap vs :vsplit<cr>
+"terminal configs
+"Will open a terminal all the way to the right
+nnoremap <silent> <leader><leader> :vertical botright Ttoggle<cr><C-w>l
 
+"Easy Escape terminal
+tnoremap <leader><esc> <C-\><C-n><esc><cr>
 "Make New Tabs And Navigation
 "Makes New Tab
 nmap tt :tabnew<CR>
@@ -148,7 +180,7 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
 "Command for opening Netrw to the left
-nnoremap <leader>d :Vex<cr>
+"nnoremap <leader>d :Vex<cr>
 "Air-Line And Power Line Fonts""-For Get Tux and Airline status bar pointy 
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'nord'
