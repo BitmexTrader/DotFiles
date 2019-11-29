@@ -1,4 +1,3 @@
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/bitcointeader/local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
@@ -17,17 +16,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 
-# POWERLEVEL10K_MODE="nerdfont-complete"
-# POWERLEVE10LK_DISABLE_RPROMPT=true
-# POWERLEVEL10K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL10K_MULTILINE_LAST_PROMPT_PREFIX="▶ "
-# POWERLEVEL10K_MULTILINE_FIRST_PROMPT_PREFIX=""
-# POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status virtualenv)
-# POWERLEVEL10K_CUSTOM_BITMEXTRADER_ICON="echo <unicode logo icon> "
-# POWERLEVEL10K_CUSTOM_BITMEXTRADER_ICON_BACKGROUND=069
-# POWERLEVEL10K_CUSTOM_BITMEXTRADER_ICON_BACKGROUND_FOREGROUND=015
-# POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time virtualenv)
-# POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(custom_bitmextrader_icon context vcs)
 # Set list of themes to pick from when loading at random
 #
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -95,13 +83,14 @@ plugins=(
   web-search
   tmux
   zsh-autosuggestions
-  fancy-ctrl-z
   python
   virtualenv
   vi-mode
   colored-man-pages
   copydir
   copybuffer
+  colorize
+  django
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,25 +117,26 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Aliases
-# zsh aliases
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-
+# ALIASES
 # Vim to Nvim
 alias vi="nvim"
 alias vim="nvim"
 #Configs/DotFiles
 alias int="nvim ~/.config/nvim/init.vim"
-alias rc="nvim ~/.config/ranger/rc.conf"
 
+alias tmuxconfig="nvim ~/.tmux.conf"
+alias rc="nvim ~/.config/ranger/rc.conf"
+# zsh aliases
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
 # Desktop alias
 alias cookbook"nnn ~/Desktop/CookBooks"
 alias todo="nvim ~/Desktop/TODOS/ToDayToDo.txt"
-
+alias TD="~/Desktop/TODOS"
+#
 #Repositories
 #Github Dotfiles README.md
-alias README="nvim ~/Desktop/MyDotfiles/README.md"
+alias Dotme="nvim ~/Desktop/MyDotfiles/README.md"
 
 #Teminal File mangers
 #NNN open configuration
