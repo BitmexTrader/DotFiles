@@ -52,7 +52,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
  ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -122,21 +122,24 @@ export LANG=en_US.UTF-8
 alias vi="nvim"
 alias vim="nvim"
 #Configs/DotFiles
+#Neovim Config File
 alias int="nvim ~/.config/nvim/init.vim"
-
+#tmux Config File 
 alias tmuxconfig="nvim ~/.tmux.conf"
+#Ranger config File
 alias rc="nvim ~/.config/ranger/rc.conf"
 # zsh aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 # Desktop alias
-alias cookbook"nnn ~/Desktop/CookBooks"
+alias CB="~/Desktop/CookBooks"
 alias todo="nvim ~/Desktop/TODOS/ToDayToDo.txt"
 alias TD="~/Desktop/TODOS"
-#
 #Repositories
 #Github Dotfiles README.md
 alias Dotme="nvim ~/Desktop/MyDotfiles/README.md"
+#Copy My local dotfiles to my DotFiles Repositorie
+
 
 #Teminal File mangers
 #NNN open configuration
