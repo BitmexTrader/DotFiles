@@ -19,6 +19,7 @@ let g:deoplete#enable_at_startup = 1
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
+	
   Plug 'Shougo/defx.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
@@ -26,18 +27,53 @@ endif
 Plug 'Shougo/deol.nvim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/deol.nvim'
+"Vimshell needs vimproc to run, so install that to
 Plug 'Shougo/vimshell.vim'
-
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 "THE MAN TPOPES PLUGINS "
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-obsession'
 "Directory Manger
+Plug 'mcchrish/nnn.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
 "This works with NETRW (vim file manger) to give to NERDTREE like functions.
 "Plug 'pablopunk/native-sidebar.vim'
+"
+"AUTO COMPLETION"
+"Testing NCM2 
+
+" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+    Plug 'ncm2/ncm2'
+    Plug 'roxma/nvim-yarp'
+
+    " enable ncm2 for all buffers
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+
+    " IMPORTANT: :help Ncm2PopupOpen for more information
+    set completeopt=noinsert,menuone,noselect
+
+    " NOTE: you need to install completion sources to get completions. Check
+    " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
+Plug 'ncm2/ncm2-github'
+"css
+Plug 'ncm2/ncm2-cssomni'
+"javascript
+Plug 'ncm2/ncm2-tern'
+"typescript
+Plug 'mhartington/nvim-typescript'
+"python
+Plug 'ncm2/ncm2-jedi'
+
+
 "COLOUR SCHEMES FOR MAIN BACKGROUND AND AIRLINE"
 "Python Syntax Highlighter
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -55,8 +91,6 @@ Plug 'prabirshrestha/async.vim'
 "these two give completion over tmux panes, they are great together
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'wellle/tmux-complete.vim'
-"AUTO COMPLETION"
-Plug 'roxma/nvim-completion-manager'
 "SNIPPET-PLUGINS
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
@@ -89,7 +123,6 @@ set splitbelow splitright
 
 ""{{{"Opens my innit.vim file" ---------------------------------
 nnoremap <leader>int :edit $MYVIMRC<cr>
-nnoremap <leader>tdt :edit ~/Desktop/TODOS/ToDayToDo.txt<cr>
 "Reloads New Edits Of My init.vim.
 nnoremap <leader>sv :source $MYVIMRC<cr>
 "Will Open My init.vim File In A NewTab.
@@ -97,6 +130,7 @@ nnoremap <leader>vn :tabnew $MYVIMRC<cr>
 "MAPPINGS TO Commands Folders"
 nnoremap <leader>cm :vsplit ~/Desktop/Commands/NNN.md<cr>
 
+nnoremap <leader>tdt :edit ~/Desktop/TODOS/ToDayToDo.txt<cr>
 
 "fast Quit and save (write) Shortcuts"
 nnoremap <leader>w :write<cr>
@@ -113,7 +147,11 @@ nnoremap <leader>u 0v$U
 "Plugin Mappings 
 "Will fire your default browser to view MD files
 nnoremap <leader>md :MarkdownPreview<cr>
-"This
+"
+"
+"nnoremap <leader>n :
+
+""This
 "Unite Mapping " {{{----------------------------------------------
 nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec<cr>
@@ -200,6 +238,21 @@ nnoremap <leader>u1 :call UnderlineHeading(1);<cr>
 nnoremap <leader>u2 :call UnderlineHeading(2);<cr>
 nnoremap <leader>u3 :call UnderlineHeading(3);<cr>
 "
+function! UpperCace(upper) 
+	if a:upper == 1
+	  normal! 0v$U
+        elseif a:upper == 2
+	  normal! 0v$u
+	endif
+endfunction
+
+nnoremap <C-c> :call UpperCace(1);<cr>
+nnoremap <C-x> :call UpperCace(2);<cr>
+" Opens the nnn window in a split
+let g:nnn#layout = 'new' " or vnew, tabnew etc.
+" Or pass a dictionary with window size
+let g:nnn#layout = { 'left': '~20%' } " or right, up, down
+
 " }}}
 
 let g:NERDTreeDisableFileExtensionHighlight = 1
@@ -247,4 +300,5 @@ let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the c
 
 let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
 let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
-
+" Markdown Plugin runtime path
+set runtimepath+=~/EasyMD-vim
