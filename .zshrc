@@ -91,6 +91,7 @@ plugins=(
   copybuffer
   colorize
   django
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -121,16 +122,17 @@ export LANG=en_US.UTF-8
 # Vim to Nvim
 alias vi="nvim"
 alias vim="nvim"
-#Configs/DotFiles
+#CONFIGS/DOTFILES
 #Neovim Config File
 alias int="nvim ~/.config/nvim/init.vim"
 #tmux Config File 
-alias tmuxconfig="nvim ~/.tmux.conf"
+alias tconfig="nvim ~/.tmux.conf"
 #Ranger config File
 alias rc="nvim ~/.config/ranger/rc.conf"
-# zsh aliases
+# zsh configs
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias p10k="nvim ~/.p10k.zsh"
 # Desktop alias
 alias CB="~/Desktop/CookBooks"
 alias todo="nvim ~/Desktop/TODOS/ToDayToDo.txt"
