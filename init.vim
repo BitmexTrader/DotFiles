@@ -1,10 +1,10 @@
-"Leader is <Space>"
+"LEADER IS <SPACE>"
 let mapleader =" "
 "Local Leader is <Space>,"
 let maplocalleader =" ,"
 
-"PLUGINS THAT I AM USING"
-""Using the Plugin Manger Vim-Plug"
+""USING THE PLUGIN MANGER VIM-PLUG"
+"Put Plugins below call plug#begin"
 call plug#begin()
 
 "DARK-VIM MASTER SHOUGO PLUGINS
@@ -38,16 +38,10 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 "Directory Manger
 Plug 'mcchrish/nnn.vim'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-"Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-vinegar'
-"This works with NETRW (vim file manger) to give to NERDTREE like functions.
-"Plug 'pablopunk/native-sidebar.vim'
+Plug 'ripxorip/bolt.nvim', { 'do': ':UpdateRemotePlugins' }
 "
-"AUTO COMPLETION"
-"Testing NCM2 
-
-" assuming you're using vim-plug: https://github.com/junegunn/vim-plug
+" AUT-COMPLETION: 
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
 
@@ -72,8 +66,8 @@ Plug 'ncm2/ncm2-tern'
 Plug 'mhartington/nvim-typescript'
 "python
 Plug 'ncm2/ncm2-jedi'
-
-
+"Fuzzy-File-Finder:
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 "COLOUR SCHEMES FOR MAIN BACKGROUND AND AIRLINE"
 "Python Syntax Highlighter
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -112,24 +106,24 @@ set wildmode=longest:full,full
 set path=**
 set number 
 set noswapfile
+"COLORSCHEME:
 colorscheme welpe
 "Set termguicolors after color scheme"
 set termguicolors
+
 setlocal spell
 set splitbelow splitright
 
 
-"MY LEADER MAPPINGS
+"LEADER MAPPINGS:
 
-""{{{"Opens my innit.vim file" ---------------------------------
+"OPENS  INNIT.VIM FILE:  ---------------------------------
 nnoremap <leader>int :edit $MYVIMRC<cr>
 "Reloads New Edits Of My init.vim.
 nnoremap <leader>sv :source $MYVIMRC<cr>
-"Will Open My init.vim File In A NewTab.
+"Will Open  init.vim File In A NewTab.
 nnoremap <leader>vn :tabnew $MYVIMRC<cr>
 "MAPPINGS TO Commands Folders"
-nnoremap <leader>cm :vsplit ~/Desktop/Commands/NNN.md<cr>
-
 nnoremap <leader>tdt :edit ~/Desktop/TODOS/ToDayToDo.txt<cr>
 
 "fast Quit and save (write) Shortcuts"
@@ -144,14 +138,10 @@ nnoremap <leader>sa ]s1z=
 "UPPERCASE SHORTCUT
 nnoremap <leader>u 0v$U 
 
-"Plugin Mappings 
+" PLUGIN MAPPINGS:
 "Will fire your default browser to view MD files
 nnoremap <leader>md :MarkdownPreview<cr>
 "
-"
-"nnoremap <leader>n :
-
-""This
 "Unite Mapping " {{{----------------------------------------------
 nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec<cr>
@@ -302,3 +292,4 @@ let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid err
 let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
 " Markdown Plugin runtime path
 set runtimepath+=~/EasyMD-vim
+set runtimepath+=~/vim-amake
