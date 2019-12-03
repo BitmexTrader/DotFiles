@@ -41,7 +41,7 @@ It's pretty small just a few key mappings a few plugins that work witn Neovim or
 *_Aliases For opening files from the command line_*
 ![zshconfig](img/ZconfigAli.png)
 
-![Command line](img/(gif))
+![Command line](img/com.gif)
 ### *oh-my-zsh*
 
 
