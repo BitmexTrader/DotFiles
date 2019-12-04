@@ -37,9 +37,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 "Directory Manger
-Plug 'mcchrish/nnn.vim'
 Plug 'tpope/vim-vinegar'
-Plug 'ripxorip/bolt.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 "
 " AUT-COMPLETION: 
     Plug 'ncm2/ncm2'
@@ -52,7 +52,7 @@ Plug 'ripxorip/bolt.nvim', { 'do': ':UpdateRemotePlugins' }
     set completeopt=noinsert,menuone,noselect
 
     " NOTE: you need to install completion sources to get completions. Check
-    " our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+    " the wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-vim' | Plug 'Shougo/neco-vim'
@@ -135,8 +135,6 @@ nnoremap <leader>h :nohlsearch<cr>
 nnoremap <leader>s :setlocal spell! spelllang=en_us<cr> 
 "Fast Spelling corrections 
 nnoremap <leader>sa ]s1z=
-"UPPERCASE SHORTCUT
-nnoremap <leader>u 0v$U 
 
 " PLUGIN MAPPINGS:
 "Will fire your default browser to view MD files
@@ -145,8 +143,13 @@ nnoremap <leader>md :MarkdownPreview<cr>
 "Unite Mapping " {{{----------------------------------------------
 nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
 nnoremap <leader>r :<C-u>Unite -start-insert file_rec<cr>
-nnoremap <leader>d :NERDTreeToggle<CR>
-"CAN NAVIGATION ALL MODE WITH CTRL- ARROW KEYS
+
+"Ranger:
+nnoremap <leader>r :RangerWorkingDirectory<cr>
+let g:ranger_replace_netrw = 1 "// open ranger when vim open a directory"
+let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+
+"CAN NAVIGATE ALL MODES WITH CTRL- ARROW KEYS
 " Navigation for terminal mode
 tnoremap <C-Left> <C-\><C-N><C-w>h
 tnoremap <C-Down> <C-\><C-N><C-w>j
@@ -187,6 +190,8 @@ augroup VimReload
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
+"Ranger:
+let g:ranger_map_keys = 0
 "{{{"Tmux Completion Settings
 let g:tmuxcomplete#asyncomplete_source_options = {
             \ 'name':      'tmuxcomplete',
