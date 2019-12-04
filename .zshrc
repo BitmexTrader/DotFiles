@@ -3,9 +3,11 @@ export PATH=$HOME/bin:/bitcointeader/local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
  #Path to your oh-my-zsh installation.
 export ZSH="/home/bitcointeader/.oh-my-zsh"
+# Default Editor
+export NNN_OPENER=nvim
+VISUAL=nvim
+EDITOR=nvim
 export NNN_USE_EDITOR=1
-export NNN_DE_FILE_MANAGER=Files
-
 export RANGER_LOAD_DEFAULT_RC= false  
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -91,6 +93,7 @@ plugins=(
   copybuffer
   colorize
   django
+# I installed this
   zsh-syntax-highlighting
 )
 
@@ -140,6 +143,7 @@ alias TD="~/Desktop/TODOS"
 #Repositories
 #Github Dotfiles README.md
 alias Dotme="nvim ~/Desktop/MyDotfiles/README.md"
+alias Dotdir="~/Desktop/MyDotfiles"
 #Copy My local dotfiles to my DotFiles Repositorie
 
 
