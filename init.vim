@@ -1,13 +1,14 @@
-"LEADER IS <SPACE>"
+"Leader-is-<Space>:
 let mapleader =" "
 "Local Leader is <Space>,"
 let maplocalleader =" ,"
 
-""USING THE PLUGIN MANGER VIM-PLUG"
-"Put Plugins below call plug#begin"
+"USING THE PLUGIN MANGER VIM-PLUG:
+"Put Plugins below call plug#begin
 call plug#begin()
 
 "DARK-VIM MASTER SHOUGO PLUGINS
+"This gets deoplete to work.
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -38,10 +39,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-obsession'
 "Directory Manger
 Plug 'tpope/vim-vinegar'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
-"
-" AUT-COMPLETION: 
+
+" AUTO-COMPLETION: 
     Plug 'ncm2/ncm2'
     Plug 'roxma/nvim-yarp'
 
@@ -68,7 +68,8 @@ Plug 'mhartington/nvim-typescript'
 Plug 'ncm2/ncm2-jedi'
 "Fuzzy-File-Finder:
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-"COLOUR SCHEMES FOR MAIN BACKGROUND AND AIRLINE"
+
+" THEME / INTERFACE
 "Python Syntax Highlighter
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 "Highlight yanked text in visual mode"
@@ -79,6 +80,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kyuhi/vim-emoji-complete'
 Plug 'ryanoasis/vim-devicons'
+Plug 'zhaocai/linepower.vim'
 "TUMX STATUS LINE AND COMPLETION"
 Plug 'edkolev/tmuxline.vim'
 Plug 'prabirshrestha/async.vim'
@@ -100,7 +102,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 call plug#end()
 
-"BASIC CONFIGS"
+"BASIC CONFIGS:
 set relativenumber
 set wildmode=longest:full,full
 set path=**
@@ -123,7 +125,7 @@ nnoremap <leader>int :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 "Will Open  init.vim File In A NewTab.
 nnoremap <leader>vn :tabnew $MYVIMRC<cr>
-"MAPPINGS TO Commands Folders"
+"This opens a Todo text file
 nnoremap <leader>tdt :edit ~/Desktop/TODOS/ToDayToDo.txt<cr>
 
 "fast Quit and save (write) Shortcuts"
@@ -137,17 +139,15 @@ nnoremap <leader>s :setlocal spell! spelllang=en_us<cr>
 nnoremap <leader>sa ]s1z=
 
 " PLUGIN MAPPINGS:
-"Will fire your default browser to view MD files
+"Will fire a instance of the default browser to view MD files
 nnoremap <leader>md :MarkdownPreview<cr>
 "
 "Unite Mapping " {{{----------------------------------------------
-nnoremap <leader>f :<C-u>Unite -start-insert file<CR>
-nnoremap <leader>r :<C-u>Unite -start-insert file_rec<cr>
+nnoremap <leader>f :<C-u>Unite -start-insert file<cr>
+nnoremap <leader>u :<C-u>Unite -start-insert file_rec<cr>
 
-"Ranger:
-nnoremap <leader>r :RangerWorkingDirectory<cr>
-let g:ranger_replace_netrw = 1 "// open ranger when vim open a directory"
-let g:ranger_command_override = 'ranger --cmd "set show_hidden=true"'
+"VIMFILER: "If you want it work like Nerdtree"
+nnoremap <A-d> :VimFilerExplorer -winwidth=30 <cr>
 
 "CAN NAVIGATE ALL MODES WITH CTRL- ARROW KEYS
 " Navigation for terminal mode
@@ -170,7 +170,7 @@ nnoremap <C-Down> <C-w>j
 "Shortcut for Splitting Windows"
 nnoremap sp :split<cr>
 nnoremap vs :vsplit<cr>
-"terminal configs
+"TERMINAL CONFIGS
 "Will open a terminal all the way to the right
 nnoremap <silent> <leader><leader> :vertical botright Ttoggle<cr><C-w>l
 
@@ -184,15 +184,13 @@ nmap tn :tabn<CR>
 "Makes A Copy Of The Tab You Are In
 nmap ts :tab split<CR>
 
-" Source $MYVIMRC when it is saved.
+"Will source $MYVIMRC when it is saved.
 augroup VimReload
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
 
-"Ranger:
-let g:ranger_map_keys = 0
-"{{{"Tmux Completion Settings
+"{{{"TMUX COMPLETION SETTINGS:
 let g:tmuxcomplete#asyncomplete_source_options = {
             \ 'name':      'tmuxcomplete',
             \ 'whitelist': ['*'],
@@ -206,15 +204,14 @@ let g:tmuxcomplete#asyncomplete_source_options = {
             \     }
             \ }
 
-"Make Netrw work like Nerdtree"
+"MAKE NETRW WORK LIKE NERDTREE:"
 let g:netrw_bannner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
-"Command for opening Netrw to the left
-"nnoremap <leader>d :Vex<cr>
-"Air-Line And Power Line Fonts""-For Get Tux and Airline status bar pointy 
+
+"Air-Line And Power Line Fonts""- Get Tmux and Airline status bar pointy 
 let g:airline_powerline_fonts=1
 let g:airline_theme = 'nord'
 
@@ -243,58 +240,21 @@ endfunction
 
 nnoremap <C-c> :call UpperCace(1);<cr>
 nnoremap <C-x> :call UpperCace(2);<cr>
-" Opens the nnn window in a split
-let g:nnn#layout = 'new' " or vnew, tabnew etc.
-" Or pass a dictionary with window size
-let g:nnn#layout = { 'left': '~20%' } " or right, up, down
-
-" }}}
-
-let g:NERDTreeDisableFileExtensionHighlight = 1
-let g:NERDTreeDisableExactMatchHighlight = 1
-let g:NERDTreeDisablePatternMatchHighlight = 1
-
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
+"
+"PLUGIN SETTINGS:
+"LeaderF Settings:
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 
 
-
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 
-
-
-
-
-
-" you can add these colors to your .vimrc to help customizing
-let s:brown = "905532"
-let s:aqua =  "3AFFDB"
-let s:blue = "689FB6"
-let s:darkBlue = "44788E"
-let s:purple = "834F79"
-let s:lightPurple = "834F79"
-let s:red = "AE403F"
-let s:beige = "F5C06F"
-let s:yellow = "F09F17"
-let s:orange = "D4843E"
-let s:darkOrange = "F16529"
-let s:pink = "CB6F6F"
-let s:salmon = "EE6E73"
-let s:green = "8FAA54"
-let s:lightGreen = "31B53E"
-let s:white = "FFFFFF"
-let s:rspec_red = 'FE405F'
-let s:git_orange = 'F54D27'
-
-let g:NERDTreeExtensionHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreeExtensionHighlightColor['css'] = s:blue " sets the color of css files to blue
-
-let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
-
-let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
-let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
-" Markdown Plugin runtime path
+"Vimfiler Settings:
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
+let g:vimfiler_force_overwrite_statusline=0  
+let g:vimfiler_tree_indentation=2
+"MY TEST PLUGINGS: Markdown Plugin runtime path
 set runtimepath+=~/EasyMD-vim
 set runtimepath+=~/vim-amake
