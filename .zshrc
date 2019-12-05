@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/bitcointeader/local/bin:$PATH
 export PATH=~/.npm-global/bin:$PATH
  #Path to your oh-my-zsh installation.
-export ZSH="/home/bitcointeader/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 # Default Editor
 export NNN_OPENER=nvim
 VISUAL=nvim
