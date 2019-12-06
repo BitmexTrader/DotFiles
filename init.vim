@@ -170,14 +170,16 @@ nnoremap <C-Down> <C-w>j
 "Shortcut for Splitting Windows"
 nnoremap sp :split<cr>
 nnoremap vs :vsplit<cr>
-"TERMINAL CONFIGS
+
+"TERMINAL CONFIGS:
 "Will open a terminal all the way to the right
 nnoremap <silent> <leader><leader> :vertical botright Ttoggle<cr><C-w>l
 
 "Easy Escape terminal
 tnoremap <leader><esc> <C-\><C-n><esc><cr>
-"Make New Tabs And Navigation
-"Makes New Tab
+
+"Make New Tabs And Navigation:
+"makes new tab
 nmap tt :tabnew<CR>
 "Navigation
 nmap tn :tabn<CR>
@@ -242,11 +244,12 @@ nnoremap <C-c> :call UpperCace(1);<cr>
 nnoremap <C-x> :call UpperCace(2);<cr>
 "
 "PLUGIN SETTINGS:
+
 "LeaderF Settings:
+let g:Lf_WindowPosition='bottom'
+let g:Lf_ShowRelativePath='yes'
 let g:Lf_StlColorscheme = 'powerline'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
-
-
 "Vimfiler Settings:
 let g:vimfiler_tree_leaf_icon = ' '
 let g:vimfiler_tree_opened_icon = '▾'
@@ -255,6 +258,7 @@ let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 let g:vimfiler_force_overwrite_statusline=0  
 let g:vimfiler_tree_indentation=2
+
 "MY TEST PLUGINGS: Markdown Plugin runtime path
 set runtimepath+=~/EasyMD-vim
 set runtimepath+=~/vim-amake
