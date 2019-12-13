@@ -5,7 +5,8 @@ export PATH=~/.npm-global/bin:$PATH
 export ZSH="/home/bitcointeader/.oh-my-zsh"
 # Theme it is easy to configure will need Nerd fonts for it to work
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
+export VISUAL=nvim
+export EDITOR=$VISUAL
 # Load the Aliases file
 if [ -e ~/.zsh_files/aliases.zsh ]; then
      source ~/.zsh_files/aliases.zsh
