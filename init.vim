@@ -1,3 +1,4 @@
+
 let mapleader =" "
 "Local Leader is <Space>,"
 let maplocalleader =" ,"
@@ -101,6 +102,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'troydm/zoomwintab.vim'
 Plug 'jreybert/vimagit'
 Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-gitgutter'
 "MarkdownPreview
 " If you have nodejs and yarn
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
