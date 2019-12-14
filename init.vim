@@ -182,8 +182,6 @@ nnoremap <C-p> :Files<cr>
 
 
 nnoremap <A-d> :Defx  -toggle -wincol=555 -split=floating -winwidth=30 -winheight=40<cr>
-" もし作成してなかったら ~/.defxsessions を作成する
-" そして defx を開く際にセッションファイルを指定する
 "
 let g:defx_sessions_file = $HOME . '/.defxsessions'
 
