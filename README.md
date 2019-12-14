@@ -13,8 +13,6 @@ This is the setup that I have been working on, I started using NeoVim and Vim at
 - [zsh](https://gist.github.com/derhuerst/12a1558a4b408b3b2b7e) (a better shell, command line IMO. Just use it. <br>
 - [oh-my-ash](https://github.com/robbyrussell/oh-my-zsh) it's kind of a plugin manger, but more. It will come with bunch of plugins that you can choose to use by adding them in the .zshrc file, but do not use to many as it can slow things up<br>  
 
-- [Ranger](https://github.com/ranger/ranger/)(A terminal file manger) this is a great tool for navigating fil, bit slow when getting into bigger directorys, NNN might be a better option still test.
-
 ### *Neovim Setup*
 I had first started to try and keep this to as small plugin wise as possble and with some basic mappings it has kind of grown into a bit more then that
 [Twitter](https://twitter.com/FreelanceForBTC) 
@@ -54,7 +52,6 @@ If you have not used Z-Shell (zsh) before I recommend using this for a plugin ma
 #### *_Plugin Examples_*
 ![oh-my-zsh pluging](img/ohmy.png)
 
-### *Ranger*
 
 #### **The Plugin Manger**
 [Vim-plug](https://github.com/junegunn/vim-plug)
